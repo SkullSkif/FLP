@@ -1,0 +1,12 @@
+(defun INC(c)
+    (append (list (+ (car c) 1)) (cdr c))  
+    )
+
+(defun f(x L n)
+    (cond
+            ((null L) (if (null (cdr n)) (list nil) (cdr n)))
+            ((equal x (car L)) (f x (cdr L) (append (INC n) (list (car n)))))
+            (t (f x (cdr L) (INC n)))
+    )
+)
+(print (f `a `(3 1 a 3 4 b a) `(1)))
